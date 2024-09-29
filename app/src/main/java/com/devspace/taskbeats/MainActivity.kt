@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         categoryAdapter.setOnLongClickListener { categoryToBeDeleted ->
-            if (categoryToBeDeleted.name != "+"){
+            if (categoryToBeDeleted.name != "+" && categoryToBeDeleted.name != "ALL") {
             val title = this.getString(R.string.category_delele_title)
             val description = this.getString(R.string.category_delele_description)
             val btnText = this.getString(R.string.delete)
@@ -212,7 +212,6 @@ class MainActivity : AppCompatActivity() {
             getTasksFromDataBase()
         }
     }
-
 
     private fun deleteCategory (categoryEntity: CategoryEntity){
         GlobalScope.launch(Dispatchers.IO) {
